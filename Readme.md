@@ -1,7 +1,7 @@
 # Inicio
 
-> [!WARNING] Instalacións previas
-> Partimos da base que tes instalado de maneira global: `typescript` e `ts-node`, de non ser así, deberás realizar a instalación en modo local disto.
+> [!WARNING] 
+> Instalacións previas: partimos da base que tes instalado de maneira global: `typescript` e `ts-node`, de non ser así, deberás realizar a instalación en modo local disto.
 
 ## typescript
 
@@ -47,6 +47,7 @@ $ npx ts-node server
 
 
 ## Base do código en `server.ts`
+
 Partimos da base seguinte
 
 ```typescript
