@@ -1,10 +1,11 @@
 import express from 'express';
- const portNumber = 8080;
+ const portNumber = 3000;
+
  const app = express();
+
  app.get('/', (request, response) => {
- response.send('You requested ' + request.query.firstname + ' ' + request.query.
- lastname);
+    response.send('You requested ' + request.query.firstname + ' ' + request.query.lastname);
  })
  app.listen(portNumber, 'localhost', () => {
- console.log('Listening on localhost:' + portNumber);
+    console.log('Listening on localhost:' + portNumber);
  });

@@ -1,7 +1,7 @@
 # Inicio
 
 > [!WARNING] 
-> Instalacións previas: partimos da base que tes instalado de maneira global: `typescript` e `ts-node`, de non ser así, deberás realizar a instalación en modo local disto.
+> Instalacións previas: partimos da base que tes instalado de maneira global: `typescript` e `ts-node`, de non ser así, deberás realizar a instalación en modo local disto. Debedes instalar todos os paquetes `npm i`, e admáis inicialo con `tsc --init` para que se xenere o `tsconfig.json`
 
 ## typescript
 
@@ -65,5 +65,7 @@ Partimos da base seguinte
     console.log('Listening on localhost:' + portNumber);
  });
 ```
+> Petición básica `http://localhost:3000/?firstname=John&lastname=Smith`
+
 
 > Petición básica `http://localhost:8080/?firstname=John&lastname=Smith`
