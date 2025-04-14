@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="./css/estilo.css" rel="stylesheet"/>
+</head>
+<body>
+  <h2>Subir imagen</h2>
+  <input type="file" id="fileInput" />
+  <button onclick="uploadImage()">Subir</button>
+  
+  <script>
+    async function uploadImage() {
+      const fileInput = document.getElementById('fileInput');
+      const file = fileInput.files[0];
+
+      if (!file) {
+        alert('Selecciona una imagen primero.');
+        return;
+      }
+
+      const response = await fetch('http://localhost:8080/upload-image', {
+        method: 'POST',
+        headers: {
+          'Content-Type': file.type // ejemplo: 'image/jpeg'
+        },
+        body: await file.arrayBuffer() // Convertimos el archivo a binario
+      });
+
+      const text = await response.text();
+      alert(text);
+    }
+  </script>
+</body>
+</html>
