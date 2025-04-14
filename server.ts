@@ -1,13 +1,15 @@
 import express from 'express';
 import multer from 'multer';
 import { storage } from './configuracion.multer';
+import cors from 'cors';
 //const upload = multer({ dest: 'uploads/' })
 const portNumber = 8080;
 const app = express();
 
-  
+
 const upload = multer({ storage: storage })
 
+app.use(cors())
 // https://expressjs.com/en/starter/static-files.html
 // Ficheiros estáticos
 app.use('/uploads',express.static('uploads'))
@@ -24,9 +26,12 @@ app.post('/profile',  upload.single('avatar'),function (request: express.Request
     // req.file is the `avatar` file
     // req.body will hold the text fields, if there were any
     
+    const {dato1, dato2 } = request.body;
+    console.log("dato1 ", dato1);
+    console.log("dato2 ",dato2)
    
     console.log("Datos de ficheiro ",request.file)
-    console.log("Campos de entrada ",request.body.usuario,request.body)
+    console.log("Campos de entrada ",request.body)
     response.send({
         mensaxe: "datos gardados"
     })
