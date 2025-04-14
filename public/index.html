@@ -1,9 +1,26 @@
-<form action="/profile" method="post" enctype="multipart/form-data">
-  <input type="file" name="avatar" />
-  <input type="submit" value="Get me the stats!" class="btn btn-default"> 
-</form>
-
-<form action="/photos/upload" method="post" enctype="multipart/form-data" >
-  <input type="file" name="photos" multiple/>
-  <input type="submit" value="Get me the stats!" class="btn btn-default"> 
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="./css/estilo.css" rel="stylesheet"/>
+</head>
+<body>
+  <form action="/profile" method="post" enctype="multipart/form-data">
+    <input type="file" name="avatar" />
+    <input type="text" name="usuario" placeholder="Introduce o teu nome"/>
+    <input type="text" name="apelido1" placeholder="Introduce o teu primeiro apelido"/>
+    <input type="text" name="apelido2" placeholder="Introduce o teu segundo apelido"/>
+    <input type="submit" value="Get me the stats!" class="btn btn-default"> 
+  </form>
+  
+  <form action="/photos/upload" method="post" enctype="multipart/form-data" >
+    <input type="text" name="usuario" placeholder="Introduce o teu nome"/>
+    <input type="text" name="apelido1" placeholder="Introduce o teu primeiro apelido"/>
+    <input type="text" name="apelido2" placeholder="Introduce o teu segundo apelido"/>
+    <input type="file" name="photos" multiple/>
+    <input type="submit" value="Get me the stats!" class="btn btn-default"> 
+  </form>
+</body>
+</html>
