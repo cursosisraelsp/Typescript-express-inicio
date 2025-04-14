@@ -5,6 +5,6 @@ export const storage = multer.diskStorage({
       cb(null, path.join(__dirname,'uploads'))
     },
     filename: function (req, files, cb) {
-      cb(null, files.originalname  )
+      cb(null, files.originalname)
     }
   })

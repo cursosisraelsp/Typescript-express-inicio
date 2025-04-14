@@ -17,7 +17,8 @@ app.use('/static',express.static('public'))
 
 app.get('/', (request, response) => {
     response.send('You requested ' + request.query.firstname + ' ' + request.query.lastname);
- })
+ 
+})
 
 app.post('/profile',  upload.single('avatar'),function (request: express.Request, response: express.Response, next) {
     // req.file is the `avatar` file
