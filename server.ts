@@ -7,7 +7,7 @@ const app = express();
 
   
 const upload = multer({ storage: storage })
-
+const upload2 = upload.single('avatar')
 // https://expressjs.com/en/starter/static-files.html
 // Ficheiros estáticos
 app.use('/uploads',express.static('uploads'))
@@ -19,16 +19,35 @@ app.get('/', (request, response) => {
     response.send('You requested ' + request.query.firstname + ' ' + request.query.lastname);
  })
 
-app.post('/profile',  upload.single('avatar'),function (request: express.Request, response: express.Response, next) {
+app.post('/profile',  function (request: express.Request, response: express.Response) {
     // req.file is the `avatar` file
     // req.body will hold the text fields, if there were any
-    
-   
-    console.log("Datos de ficheiro ",request.file)
-    console.log("Campos de entrada ",request.body.usuario,request.body)
-    response.send({
+    upload2(request, response, function(err){
+
+      if (err instanceof multer.MulterError) {
+        
+        console.error("Erro de Multer:", err);
+        return response.status(400).send({ error: "Erro ao subir ficheiros: " + err.message });
+      } else if (err) {
+        
+        console.error("Erro inesperado:", err);
+        return response.status(500).send({ error: "Erro interno ao subir ficheiros" });
+      }
+      
+    try {
+      console.log("Datos de ficheiros ", request.files);
+      console.log("Campos de entrada ", request.body.apelido1, request.body);
+
+      response.send({
         mensaxe: "datos gardados"
+      });
+    } catch (error) {
+      console.error("Erro ao procesar os datos:", error);
+      response.status(500).send({ error: "Erro ao procesar os datos" });
+    }
     })
+   
+    
   })
   
   app.post('/photos/upload', upload.array('photos', 2), function (request: express.Request, response: express.Response, next) {
